@@ -7,7 +7,7 @@ export default function Home() {
     <div className="min-h-screen overflow-auto relative">
       <AuroraBackground className="absolute inset-0 h-full w-full"><></></AuroraBackground>
       <div className="relative z-50 flex h-full flex-col p-4">
-        <Menu darkLogo={false} linkText="Try our app" />
+        <Menu darkLogo={false} />
         <Hero />
       </div>
     </div>

@@ -1,6 +1,7 @@
 import Link from "next/link"
+import { TryApp } from "./redirect_buttons/Buttons"
 
-export default function Menu({ darkLogo = false, linkText }: { darkLogo: boolean, linkText: string }) {
+export default function Menu({ darkLogo = false }: { darkLogo: boolean }) {
     return (
         <div className="flex justify-between items-baseline">
             <div>
@@ -14,12 +15,7 @@ export default function Menu({ darkLogo = false, linkText }: { darkLogo: boolean
                 <Link href="https://github.com/faizaanqureshi/Fintasia-AI" target="_blank" className={`badge ${darkLogo ? 'bg-white text-black' : 'badge-outline'}`}>GitHub</Link>
             </div>
             <div>
-                <Link href="/financial-assessment" className="btn bg-white text-slate-800 hover:bg-slate-200 rounded-3xl hidden sm:flex">
-                    {linkText}
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-                        <path d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z" />
-                    </svg>
-                </Link>
+                <TryApp />
                 <div className="dropdown dropdown-end sm:hidden">
                     <div tabIndex={0} role="button " className="btn bg-white text-slate-800 hover:bg-slate-200 rounded-3xl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                         <rect y="4" width="24" height="2" rx="1"></rect>
