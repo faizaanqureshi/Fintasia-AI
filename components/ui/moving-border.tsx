@@ -14,6 +14,7 @@ export function Button({
     borderRadius = "1.75rem",
     children,
     as: Component = "button",
+    type = "submit",
     containerClassName,
     borderClassName,
     duration,

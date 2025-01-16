@@ -1,19 +1,23 @@
 import Link from "next/link"
 import { logout } from "./redirect_buttons/actions"
+import { PanelRightClose } from "lucide-react"
 
 export default async function AppMenu({ darkLogo = false, user }: { darkLogo: boolean, user: any }) {
     return (
         <div className="flex justify-between items-center">
-            <div>
-                <h1 className={`font-bold text-2xl ${darkLogo ? 'text-black' : 'text-white'}`}>
+            <label
+                htmlFor="my-drawer"
+                className="btn btn-ghost p-2"
+            >
+                <PanelRightClose strokeWidth={1.5} />
+            </label>
+
+            <Link href="/">
+                <h1 className={`font-bold text-2xl ${darkLogo ? 'text-black' : 'text-white'} hidden sm:inline`}>
                     Fintasia <span className="bg-gradient-to-r from-cyan-500 to-blue-500 text-transparent bg-clip-text">AI</span>
                 </h1>
-            </div>
-            <div className={`gap-2 hidden sm:flex ${darkLogo ? 'text-black border-black' : 'text-white border-white'}`}>
-                <Link href="/" className={`badge ${darkLogo ? 'bg-white text-black' : 'badge-outline'}`}>Home</Link>
-                <Link href="#about" className={`badge ${darkLogo ? 'bg-white text-black' : 'badge-outline'}`}>About</Link>
-                <Link href="https://github.com/faizaanqureshi/Fintasia-AI" target="_blank" className={`badge ${darkLogo ? 'bg-white text-black' : 'badge-outline'}`}>GitHub</Link>
-            </div>
+            </Link>
+
             <div>
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="avatar">

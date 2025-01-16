@@ -34,7 +34,8 @@ export const FileUpload = ({
     const fileInputRef = useRef<HTMLInputElement>(null);
 
     const handleFileChange = (newFiles: File[]) => {
-        setFiles((prevFiles) => [...prevFiles, ...newFiles]);
+        // Replace the files array instead of adding to it
+        setFiles(newFiles);
         // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         onChange && onChange(newFiles);
     };
@@ -61,10 +62,12 @@ export const FileUpload = ({
             >
                 <input
                     ref={fileInputRef}
+                    multiple={false}
                     id="file-upload-handle"
                     type="file"
                     onChange={(e) => handleFileChange(Array.from(e.target.files || []))}
                     className="hidden"
+                    accept=".pdf"
                 />
                 <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]">
                     <GridPattern />

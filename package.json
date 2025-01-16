@@ -13,9 +13,12 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@supabase/ssr": "^0.5.2",
     "@supabase/supabase-js": "^2.47.14",
+    "@tabler/icons-react": "^3.28.1",
+    "@types/formidable": "^3.4.5",
     "autoprefixer": "10.4.20",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "formidable": "^3.5.2",
     "framer-motion": "^11.18.0",
     "google-one-tap": "^1.0.6",
     "lucide-react": "^0.468.0",
@@ -24,7 +27,8 @@
     "openai": "^4.78.1",
     "prettier": "^3.3.3",
     "react": "19.0.0",
-    "react-dom": "19.0.0"
+    "react-dom": "19.0.0",
+    "react-dropzone": "^14.3.5"
   },
   "devDependencies": {
     "@types/google-one-tap": "^1.2.6",
