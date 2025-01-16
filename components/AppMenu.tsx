@@ -21,7 +21,8 @@ export default async function AppMenu({ darkLogo = false, user }: { darkLogo: bo
                             <img src={user.data.user?.user_metadata.avatar_url} />
                         </div>
                     </div>
-                    <ul tabIndex={0} className="dropdown-content menu bg-white rounded-box z-[1] w-52 p-2 shadow active:bg-gray-200 [&_li>*:not(ul):not(.menu-title):not(details):active]:bg-white">
+                    <ul tabIndex={0} className="dropdown-content menu bg-white rounded-box z-[1] w-52 p-2 font-sans shadow active:bg-gray-200 [&_li>*:not(ul):not(.menu-title):not(details):active]:bg-white">
+                        <div className="px-4 py-2 font-semibold font-sans text-base">{user.data.user?.user_metadata.name}</div>
                         <div className="sm:hidden">
                             <li><Link href="/">Home</Link></li>
                             <li><Link href="#about">About</Link></li>
