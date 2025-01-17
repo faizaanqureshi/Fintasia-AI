@@ -1,4 +1,3 @@
-
 import { ResponseData } from "@/app/api/ai/FinancialDetails"
 import parsePhoneNumber from 'libphonenumber-js'
 import Financials from "./Financials";
@@ -17,9 +16,7 @@ export default function ExistingReport({ report, date }: { report: ResponseData 
     const analysis = report?.overall_analysis
     const rating = report?.rating
 
-    console.log(client_details?.phone_number)
-
-    return <div className="flex flex-col justify-center w-11/12 md:w-10/12 lg:w-9/12 xl:w-8/12 2xl:w-9/12 p-8 self-center gap-12 bg-white/50 shadow rounded-xl">
+    return <div className="flex flex-col justify-center w-full sm:w-10/12 lg:w-9/12 xl:w-8/12 2xl:w-9/12 p-4 md:p-8 self-center gap-12 bg-white/50 shadow rounded-xl">
         <ClientInfo client_details={client_details} phoneNumber={phoneNumber} date={date} />
         <Financials financial_details={financial_details} />
         <Ratios financial_ratios={financial_ratios} />

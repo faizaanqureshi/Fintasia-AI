@@ -5,7 +5,7 @@ import Image from "next/image"
 
 export default async function AppMenu({ darkLogo = false, user }: { darkLogo: boolean, user: any }) {
     return (
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center p-2 sm:p-0">
             <label
                 htmlFor="my-drawer"
                 className="btn btn-ghost p-2"
@@ -14,7 +14,7 @@ export default async function AppMenu({ darkLogo = false, user }: { darkLogo: bo
             </label>
 
             <Link href="/">
-                <h1 className={`font-bold text-2xl ${darkLogo ? 'text-black' : 'text-white'} hidden sm:inline`}>
+                <h1 className={`font-bold text-2xl ${darkLogo ? 'text-black' : 'text-white'}`}>
                     Fintasia <span className="bg-gradient-to-r from-cyan-500 to-blue-500 text-transparent bg-clip-text">AI</span>
                 </h1>
             </Link>

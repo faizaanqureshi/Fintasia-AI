@@ -43,7 +43,7 @@ export default async function ReportPage({
                 <div className="drawer-content flex flex-col w-full">
                     <div className="min-h-screen w-full relative">
                         <AuroraBackgroundLight className="absolute inset-0 h-full w-full"><></></AuroraBackgroundLight>
-                        <div className="relative z-50 flex h-full flex-col p-4">
+                        <div className="relative z-50 flex h-full flex-col sm:p-4">
                             <AppMenu user={user} darkLogo />
                             <ExistingReport report={report} date={data[0].created_at} />
                         </div>

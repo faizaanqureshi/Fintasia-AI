@@ -17,7 +17,7 @@ function NumberData({ heading, number, desc }: { heading: string, number: string
 
 export default function Financials({financial_details}: {financial_details: FinancialDetails | undefined}) {
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col flex-wrap">
             <h1 className="font-sans text-lg font-semibold">Financial Details</h1>
             <div className="flex flex-row gap-4 pt-2 flex-wrap">
                 <NumberData

@@ -29,7 +29,7 @@ export default function UserReports({ userReports }: { userReports: any }) {
         {
             userReports.length > 0 ? userReports.map((report: any) => {
                 return (
-                    <div className="flex flex-row items-center justify-between pr-3">
+                    <div className="flex flex-row items-center justify-between pr-5">
                         <li className="text-sans font-thin text-md" onClick={() => router.push(`/financial-ai/report?id=${report.id}`)}><a>{report.client_name}</a></li>
                         <form
                             onSubmit={() => handleDeleteUser(report.id)}
