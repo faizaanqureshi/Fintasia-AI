@@ -38,9 +38,9 @@ function RatioDisplay({ratio, title}: {ratio: any, title: string}) {
 
 export default function Ratios({ financial_ratios }: { financial_ratios: FinancialRatios | undefined }) {
     return (
-        <div className="flex flex-col flex-wrap">
+        <div className="flex flex-col">
             <h1 className="font-sans text-lg font-semibold">Financial Ratios</h1>
-            <div className="flex gap-4 pt-2 flex-wrap">
+            <div className="flex gap-4 pt-2 flex-wrap xl:flex-nowrap">
                 <RatioDisplay ratio={financial_ratios?.cash_flow_ratio} title={'Cash Flow Ratio'}  />
                 <RatioDisplay ratio={financial_ratios?.debt_to_income_ratio} title={'Debt to Income Ratio'}  />
                 <RatioDisplay ratio={financial_ratios?.liquidity_ratio} title={'Liquidity Ratio'} />
