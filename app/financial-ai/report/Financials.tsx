@@ -2,12 +2,12 @@ import { FinancialDetails } from "@/app/api/ai/FinancialDetails"
 
 function NumberData({ heading, number, desc }: { heading: string, number: string, desc: string }) {
     return (
-        <div className="tooltip" data-tip={desc}>
-            <div className="flex flex-col">
-                <h1 className="text-2xl sm:text-4xl lg:text-lg font-sans">
+        <div className="tooltip bg-white text-black rounded-xl shadow-md p-4" data-tip={desc}>
+            <div className="flex flex-col justify-between h-full">
+                <h1 className="text-md font-md font-sans leading-5">
                     {heading}
                 </h1>
-                <h1 className="text-2xl sm:text-4xl lg:text-lg font-sans">
+                <h1 className="stat-value text-lg pt-2">
                     {number}
                 </h1>
             </div>
@@ -18,8 +18,8 @@ function NumberData({ heading, number, desc }: { heading: string, number: string
 export default function Financials({financial_details}: {financial_details: FinancialDetails | undefined}) {
     return (
         <div className="flex flex-col">
-            <h1>Financial Details</h1>
-            <div className="flex flex-row gap-4">
+            <h1 className="font-sans text-lg font-semibold">Financial Details</h1>
+            <div className="flex flex-row gap-4 pt-2 flex-wrap">
                 <NumberData
                     desc="The total number of months since the account was opened"
                     heading="Account Age in Months"
@@ -62,7 +62,8 @@ export default function Financials({financial_details}: {financial_details: Fina
                     number={`$${financial_details?.total_credit}`}
                 />
             </div>
-            <h1 className="text-2xl sm:text-4xl lg:text-lg font-sans text-black">
+            <h1 className="pt-6 text-md font-semibold pb-1">Summary</h1>
+            <h1 className="text-md font-sans text-black bg-white rounded-xl shadow-xl p-4">
                 {financial_details?.description}
             </h1>
         </div>

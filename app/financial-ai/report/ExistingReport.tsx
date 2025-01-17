@@ -8,7 +8,7 @@ import Analysis from "./Analysis";
 import Rating from "./Rating";
 import ClientInfo from "./ClientInfo";
 
-export default function ExistingReport({ report }: { report: ResponseData | undefined }) {
+export default function ExistingReport({ report, date }: { report: ResponseData | undefined, date: any }) {
     const client_details = report?.client_details;
     const phoneNumber = parsePhoneNumber(client_details?.phone_number ?? '', 'IN')?.formatInternational()
     const financial_details = report?.financial_details
@@ -19,8 +19,8 @@ export default function ExistingReport({ report }: { report: ResponseData | unde
 
     console.log(client_details?.phone_number)
 
-    return <div className="flex flex-col justify-center w-11/12 md:w-10/12 lg:w-9/12 xl:w-8/12 2xl:w-9/12 pt-16 self-center gap-12">
-        <ClientInfo client_details={client_details} phoneNumber={phoneNumber} />
+    return <div className="flex flex-col justify-center w-11/12 md:w-10/12 lg:w-9/12 xl:w-8/12 2xl:w-9/12 p-8 self-center gap-12 bg-white/50 shadow rounded-xl">
+        <ClientInfo client_details={client_details} phoneNumber={phoneNumber} date={date} />
         <Financials financial_details={financial_details} />
         <Ratios financial_ratios={financial_ratios} />
         <Patterns patterns={patterns} />

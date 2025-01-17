@@ -1,50 +1,107 @@
 import { KeyPatterns, Source } from "@/app/api/ai/FinancialDetails"
+import { Scale } from "lucide-react"
+import { HandCoins } from "lucide-react"
 
-export default function Patterns({patterns}: {patterns: KeyPatterns | undefined}) {
+export default function Patterns({ patterns }: { patterns: KeyPatterns | undefined }) {
     return (
         <div className="flex flex-col">
-            <h1>Key Patterns</h1>
+            <h1 className="font-sans text-lg font-semibold pb-2">Key Patterns</h1>
             <div className="flex gap-4 flex-col">
-                <div className="flex flex-col gap-2">
-                    <h1>Balance Trends</h1>
-                    <h1>{patterns?.balance_trends.average_balance}</h1>
-                    <h1>{patterns?.balance_trends.maximum_balance}</h1>
-                    <h1>{patterns?.balance_trends.minimum_balance}</h1>
-                    <h1>{patterns?.balance_trends.end_of_month_balance}</h1>
-                    <h1>{patterns?.balance_trends.description}</h1>
-                </div>
-                <div className="flex flex-col gap-2">
-                    <h1>Expense Patterns</h1>
-
-                    <div className="flex flex-row">
-                        <div className="flex flex-col">
-                            <h1>Liabilities</h1>
-                            <h1>{patterns?.expense_patterns.categories.liabilities.percent_of_debit}</h1>
-                            <h1>{patterns?.expense_patterns.categories.liabilities.total_debit}</h1>
-                        </div>
-
-                        <div className="flex flex-col">
-                            <h1>Necessities</h1>
-                            <h1>{patterns?.expense_patterns.categories.necessities.percent_of_debit}</h1>
-                            <h1>{patterns?.expense_patterns.categories.necessities.total_debit}</h1>
-                        </div>
-
-                        <div className="flex flex-col">
-                            <h1>One Time Expenses</h1>
-                            <h1>{patterns?.expense_patterns.categories.one_time_expenses.percent_of_debit}</h1>
-                            <h1>{patterns?.expense_patterns.categories.one_time_expenses.total_debit}</h1>
-                        </div>
-
-                        <div>
-                            <h1>Luxuries</h1>
-                            <h1>{patterns?.expense_patterns.categories.luxuries.percent_of_debit}</h1>
-                            <h1>{patterns?.expense_patterns.categories.luxuries.total_debit}</h1>
+                <div className="flex flex-col bg-white rounded-xl shadow-xl p-4">
+                    <div className="self-center">
+                        <div className="flex flex-row gap-2">
+                            <h1 className="stat-title text-black font-semibold text-md pb-4">Balance Trends</h1>
+                            <Scale strokeWidth={1.5} />
                         </div>
                     </div>
+                    <div className="flex flex-row justify-between">
+                        <div className="flex flex-col">
+                            <h1 className="stat-desc text-center text-slate-400">Average Balance</h1>
+                            <h1 className="stat-value text-lg">${patterns?.balance_trends.average_balance}</h1>
+                        </div>
 
-                    <h1>Highest Spending Category: {patterns?.expense_patterns.highest_spending_category}</h1>
-                    <h1>{patterns?.expense_patterns.description}</h1>
+                        <div className="flex flex-col text-center">
+                            <h1 className="stat-desc text-slate-400">Maximum Balance</h1>
+                            <h1 className="stat-value text-lg">${patterns?.balance_trends.maximum_balance}</h1>
+                        </div>
+
+                        <div className="flex flex-col text-center">
+                            <h1 className="stat-desc text-slate-400">Minimum Balance</h1>
+                            <h1 className="stat-value text-lg">${patterns?.balance_trends.minimum_balance}</h1>
+                        </div>
+
+                        <div className="flex flex-col text-center">
+                            <h1 className="stat-desc text-slate-400">End of Month Balance</h1>
+                            <h1 className="stat-value text-lg">${patterns?.balance_trends.end_of_month_balance}</h1>
+                        </div>
+                    </div>
+                    <h1 className="pt-4 font-sans">{patterns?.balance_trends.description}</h1>
                 </div>
+
+
+                <div className="flex flex-col bg-white rounded-xl shadow-xl p-4">
+                    <div className="self-center">
+                        <div className="flex flex-row gap-2">
+                            <h1 className="stat-title text-black font-semibold text-md pb-4">Expense Patterns</h1>
+                            <HandCoins strokeWidth={1.5} />
+                        </div>
+                    </div>
+                    <div className="flex flex-row justify-between">
+                        <div className="flex flex-col">
+                            <h1 className="stat-desc text-center text-slate-400 text-lg">Liabilities</h1>
+                            <div className="flex flex-col pt-4 text-center">
+                                <h1 className="stat-desc text-center text-slate-400">Percent of Debit</h1>
+                                <h1 className="stat-value text-lg">%{patterns?.expense_patterns.categories.liabilities.percent_of_debit}</h1>
+                            </div>
+                            <div className="flex flex-col pt-2">
+                                <h1 className="stat-desc text-center text-slate-400">Total Debit</h1>
+                                <h1 className="stat-value text-lg text-center">${patterns?.expense_patterns.categories.liabilities.total_debit}</h1>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col">
+                            <h1 className="stat-desc text-center text-slate-400 text-lg">Necessities</h1>
+                            <div className="flex flex-col pt-4">
+                                <h1 className="stat-desc text-center text-slate-400">Percent of Debit</h1>
+                                <h1 className="stat-value text-lg text-center">%{patterns?.expense_patterns.categories.necessities.percent_of_debit}</h1>
+                            </div>
+                            <div className="flex flex-col pt-2">
+                                <h1 className="stat-desc text-center text-slate-400">Total Debit</h1>
+                                <h1 className="stat-value text-lg text-center">${patterns?.expense_patterns.categories.necessities.total_debit}</h1>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col">
+                            <h1 className="stat-desc text-center text-slate-400 text-lg">One Time Expenses</h1>
+                            <div className="flex flex-col pt-4">
+                                <h1 className="stat-desc text-center text-slate-400">Percent of Debit</h1>
+                                <h1 className="stat-value text-lg text-center">%{patterns?.expense_patterns.categories.one_time_expenses.percent_of_debit}</h1>
+                            </div>
+                            <div className="flex flex-col pt-4">
+                                <h1 className="stat-desc text-center text-slate-400">Total Debit</h1>
+                                <h1 className="stat-value text-lg text-center">${patterns?.expense_patterns.categories.one_time_expenses.total_debit}</h1>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col">
+                            <h1 className="stat-desc text-center text-slate-400 text-lg">Luxuries</h1>
+                            <div className="flex flex-col pt-4">
+                                <h1 className="stat-desc text-center text-slate-400">Percent of Debit</h1>
+                                <h1 className="stat-value text-lg text-center">%{patterns?.expense_patterns.categories.luxuries.percent_of_debit}</h1>
+                            </div>
+                            <div className="flex flex-col pt-2">
+                                <h1 className="stat-desc text-center text-slate-400">Total Debit</h1>
+                                <h1 className="stat-value text-lg text-center">${patterns?.expense_patterns.categories.luxuries.total_debit}</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="flex flex-col self-center items-center pt-4">
+                        <h1 className="font-thin text-lg font-sans">Highest Spending Category</h1>
+                        <h1 className="font-bold text-lg font-sans">{patterns?.expense_patterns.highest_spending_category}</h1>
+                    </div>
+                    <h1 className="pt-4 text-md font-sans">{patterns?.expense_patterns.description}</h1>
+                </div>
+
                 <div className="flex flex-col gap-2">
                     <h1>Income Sources</h1>
                     {patterns?.income_sources.sources.map((source: Source) => {

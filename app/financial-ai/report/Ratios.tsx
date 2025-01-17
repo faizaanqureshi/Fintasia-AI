@@ -1,46 +1,50 @@
 import { FinancialRatios } from "@/app/api/ai/FinancialDetails";
 
-export default function Ratios({financial_ratios}: {financial_ratios: FinancialRatios | undefined}) {
+function RatioDisplay({ratio}: {ratio: any}) {
     return (
-        <div className="flex flex-col">
-            <h1>Financial Ratios</h1>
-            <div className="flex gap-4">
-                <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2">
+            <div className="flex flex-col justify-between p-4 bg-white shadow-lg rounded-lg">
+                <div className="self-center">
                     <div className="flex flex-col">
-                        <h1>low {financial_ratios?.cash_flow_ratio.low}</h1>
-                        <h1>avg {financial_ratios?.cash_flow_ratio.average}</h1>
-                        <h1>high {financial_ratios?.cash_flow_ratio.high}</h1>
-                        <h1>client {financial_ratios?.cash_flow_ratio.client_ratio}</h1>
+                        <h1 className="stat-title text-black font-semibold text-md pb-4">Cash Flow Ratio</h1>
                     </div>
-                    <h1>{financial_ratios?.cash_flow_ratio.description}</h1>
                 </div>
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-row justify-between">
                     <div className="flex flex-col">
-                        <h1>low {financial_ratios?.debt_to_income_ratio.low}</h1>
-                        <h1>avg {financial_ratios?.debt_to_income_ratio.average}</h1>
-                        <h1>high {financial_ratios?.debt_to_income_ratio.high}</h1>
-                        <h1>client {financial_ratios?.debt_to_income_ratio.client_ratio}</h1>
+                        <h1 className="stat-desc text-center text-slate-400">Low</h1>
+                        <h1>{ratio.low}</h1>
                     </div>
-                    <h1>{financial_ratios?.debt_to_income_ratio.description}</h1>
+
+                    <div className="flex flex-col text-center">
+                        <h1 className="stat-desc text-slate-400">Average</h1>
+                        <h1>{ratio.average}</h1>
+                    </div>
+
+                    <div className="flex flex-col text-center">
+                        <h1 className="stat-desc text-slate-400">High</h1>
+                        <h1>{ratio.high}</h1>
+                    </div>
                 </div>
-                <div className="flex flex-col gap-4">
+                <div className="self-center">
                     <div className="flex flex-col">
-                        <h1>low {financial_ratios?.liquidity_ratio.low}</h1>
-                        <h1>avg {financial_ratios?.liquidity_ratio.average}</h1>
-                        <h1>high {financial_ratios?.liquidity_ratio.high}</h1>
-                        <h1>client {financial_ratios?.liquidity_ratio.client_ratio}</h1>
+                        <h1 className="stat-value text-lg pt-4">{ratio.client_ratio}</h1>
                     </div>
-                    <h1>{financial_ratios?.liquidity_ratio.description}</h1>
                 </div>
-                <div className="flex flex-col gap-4">
-                    <div className="flex flex-col">
-                        <h1>low {financial_ratios?.savings_rate.low}</h1>
-                        <h1>avg {financial_ratios?.savings_rate.average}</h1>
-                        <h1>high {financial_ratios?.savings_rate.high}</h1>
-                        <h1>client {financial_ratios?.savings_rate.client_ratio}</h1>
-                    </div>
-                    <h1>{financial_ratios?.savings_rate.description}</h1>
-                </div>
+                <h1 className="pt-2 font-sans">{ratio.description}</h1>
+            </div>
+        </div>
+    )
+}
+
+export default function Ratios({ financial_ratios }: { financial_ratios: FinancialRatios | undefined }) {
+    return (
+        <div className="flex flex-col flex-wrap">
+            <h1 className="font-sans text-lg font-semibold">Financial Ratios</h1>
+            <div className="flex gap-4 pt-2">
+                <RatioDisplay ratio={financial_ratios?.cash_flow_ratio}  />
+                <RatioDisplay ratio={financial_ratios?.debt_to_income_ratio}  />
+                <RatioDisplay ratio={financial_ratios?.liquidity_ratio}  />
+                <RatioDisplay ratio={financial_ratios?.savings_rate}  />
             </div>
         </div>
     )

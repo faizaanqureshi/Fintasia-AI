@@ -45,7 +45,7 @@ export default async function ReportPage({
                         <AuroraBackgroundLight className="absolute inset-0 h-full w-full"><></></AuroraBackgroundLight>
                         <div className="relative z-50 flex h-full flex-col p-4">
                             <AppMenu user={user} darkLogo />
-                            <ExistingReport report={report} />
+                            <ExistingReport report={report} date={data[0].created_at} />
                         </div>
                     </div>
                 </div>
