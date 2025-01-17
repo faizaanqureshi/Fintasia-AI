@@ -1,6 +1,6 @@
 import OpenAI from "openai"
 import { zodResponseFormat } from "openai/helpers/zod";
-import responseDataSchema from "./FinancialDetails";
+import { responseDataSchema } from "./FinancialDetails";
 
 export async function POST(req) {
     try {

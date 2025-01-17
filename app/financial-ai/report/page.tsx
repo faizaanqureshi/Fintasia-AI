@@ -6,6 +6,7 @@ import { Plus } from "lucide-react";
 import ExistingReport from "./ExistingReport";
 import { redirect } from "next/navigation";
 import { ResponseData } from "@/app/api/ai/FinancialDetails";
+import UserReports, { PlusButton } from "../UserReports";
 
 export default async function ReportPage({
     searchParams
@@ -19,6 +20,7 @@ export default async function ReportPage({
     }
     const supabase = createClient();
     const user = await (await supabase).auth.getUser()
+    const userReports = (await (await supabase).from('Reports').select('id, client_name').eq('user_id_fk', user.data.user?.id)).data
 
     const { data, error } = await (await supabase).from('Reports').select().eq('id', parseInt(id))
 
@@ -62,16 +64,10 @@ export default async function ReportPage({
                             >
                                 <PanelRightOpen strokeWidth={1.5} />
                             </label>
-                            <label
-                                htmlFor="my-drawer"
-                                className="btn btn-ghost p-2"
-                            >
-                                <Plus strokeWidth={1.5} />
-                            </label>
+                            <PlusButton />
                         </div>
                         <li className="p-4 text-sans text-md font-bold">Reports</li>
-                        <li className="text-sans font-thin text-md"><a>Sidebar Item 1</a></li>
-                        <li className="text-sans font-thin text-md"><a>Sidebar Item 2</a></li>
+                        <UserReports userReports={userReports} />
                     </ul>
                 </div>
             </div>

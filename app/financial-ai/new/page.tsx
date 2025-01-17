@@ -4,10 +4,13 @@ import { createClient } from "@/utils/supabase/server";
 import { PanelRightOpen } from "lucide-react";
 import { Plus } from "lucide-react";
 import { NewReport } from "./NewReport";
+import { redirect } from "next/navigation";
+import UserReports from "../UserReports";
 
 export default async function NewReportPage() {
   const supabase = createClient();
   const user = await (await supabase).auth.getUser()
+  const userReports = (await (await supabase).from('Reports').select('id, client_name').eq('user_id_fk', user.data.user?.id)).data
 
   return (
     <div className="min-h-screen overflow-auto relative">
@@ -30,7 +33,7 @@ export default async function NewReportPage() {
             aria-label="close sidebar"
             className="drawer-overlay"
           />
-          <ul className="menu bg-white text-black text-md min-h-full w-80 p-4">
+          <ul className="menu bg-white text-black text-md min-h-full w-80 p-4 active:bg-gray-200 [&_li>*:not(ul):not(.menu-title):not(details):active]:bg-white">
             <div className="flex flex-start px-2 justify-between">
               <label
                 htmlFor="my-drawer"
@@ -46,8 +49,7 @@ export default async function NewReportPage() {
               </label>
             </div>
             <li className="p-4 text-sans text-md font-bold">Reports</li>
-            <li className="text-sans font-thin text-md"><a>Sidebar Item 1</a></li>
-            <li className="text-sans font-thin text-md"><a>Sidebar Item 2</a></li>
+            <UserReports userReports={userReports} />
           </ul>
         </div>
       </div>

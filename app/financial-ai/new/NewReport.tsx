@@ -3,7 +3,6 @@
 import { FileUpload } from "@/components/ui/file-upload";
 import { useState } from "react";
 import { Button } from "@/components/ui/moving-border";
-import { createClient } from "@supabase/supabase-js";
 import { uploadDocument } from "./actions";
 
 export function NewReport() {
@@ -51,7 +50,7 @@ export function NewReport() {
                 });
 
                 const aiResult = await response.json()
-                console.log('AI Respnse:', aiResult);
+                console.log('AI Response:', aiResult);
 
 
                 uploadDocument(aiResult);

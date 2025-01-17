@@ -37,10 +37,17 @@ export async function POST(req) {
     const { document } = result;
     const { text } = document;
     const response = {
-      "tables": []
+      "tables": [],
+      "formFields": {}
     };
 
     for (const page of document.pages) {
+      for (const field of page.formFields) {
+        const fieldName = getText(field.fieldName.textAnchor, text).trim();
+        const fieldValue = getText(field.fieldValue.textAnchor, text).trim();
+        response.formFields[fieldName] = fieldValue;
+      }
+
       for (const table of page.tables) {
         const tableInfo = {
           "numColumns": 0,
@@ -76,6 +83,8 @@ export async function POST(req) {
         response.tables.push(tableInfo);
       }
     }
+
+    console.log(response.formFields)
 
     return NextResponse.json({
       success: true,
