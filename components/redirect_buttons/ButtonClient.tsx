@@ -8,7 +8,7 @@ export function TryAppComponent({ user }: { user: any }) {
 
     const handleTryPress = () => {
         if (user && !user.error) {
-            router.push('/financial-assessment')
+            router.push('/financial-ai/new')
         } else {
             googleOAuth()
         }
@@ -29,7 +29,7 @@ export function GetStartedComponent({ user }: { user: any }) {
 
     const handleGetStartedPress = () => {
         if (user && !user.error) {
-            router.push('/financial-assessment')
+            router.push('/financial-ai/new')
         } else {
             googleOAuth()
         }

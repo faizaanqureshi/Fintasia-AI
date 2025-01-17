@@ -5,7 +5,7 @@ import { PanelRightOpen } from "lucide-react";
 import { Plus } from "lucide-react";
 import { NewReport } from "./NewReport";
 
-export default async function Home() {
+export default async function NewReportPage() {
   const supabase = createClient();
   const user = await (await supabase).auth.getUser()
 
@@ -15,7 +15,6 @@ export default async function Home() {
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
 
         <div className="drawer-content flex flex-col w-full">
-          {/* Main content with Aurora background */}
           <div className="min-h-screen w-full relative">
             <AuroraBackgroundLight className="absolute inset-0 h-full w-full"><></></AuroraBackgroundLight>
             <div className="relative z-50 flex h-full flex-col p-4">

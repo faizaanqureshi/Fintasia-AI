@@ -3,10 +3,12 @@
 import { FileUpload } from "@/components/ui/file-upload";
 import { useState } from "react";
 import { Button } from "@/components/ui/moving-border";
+import { createClient } from "@supabase/supabase-js";
+import { uploadDocument } from "./actions";
 
 export function NewReport() {
     const [files, setFiles] = useState<File[]>([]);
-    const [loadingText, setLoadingText] = useState<string>("First we'll processing your document to make it robot readable 🤖")
+    const [loadingText, setLoadingText] = useState<string>("First we'll process your document to make it robot readable 🤖")
     const [loading, setLoading] = useState<boolean>(false);
 
     const handleFileUpload = (files: File[]) => {
@@ -25,6 +27,7 @@ export function NewReport() {
         form.append('file', files[0])
 
         try {
+
             console.log('attempting first upload for conversion')
             const response = await fetch('/api/document', {
                 method: 'POST',
@@ -32,9 +35,9 @@ export function NewReport() {
             });
 
             const result = await response.json()
-            
+
             if (response.status === 200) {
-                setLoadingText("Now we'll using the magic of AI to generate financial insights 🪄")
+                setLoadingText("Now we'll use the magic of AI to generate financial insights 🪄")
             }
 
             try {
@@ -49,6 +52,9 @@ export function NewReport() {
 
                 const aiResult = await response.json()
                 console.log('AI Respnse:', aiResult);
+
+
+                uploadDocument(aiResult);
             } catch (error) {
                 console.error('Error in AI request:', error)
             }

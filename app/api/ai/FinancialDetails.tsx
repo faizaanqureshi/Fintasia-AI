@@ -155,7 +155,7 @@ const clientDetailsSchema = z.object({
   phone_number: z.string(),
 });
 
-const responseDataSchema = z.object({
+export const responseDataSchema = z.object({
   client_details: clientDetailsSchema,
   financial_details: financialDetailsSchema,
   financial_ratios: financialRatiosSchema,
@@ -164,4 +164,19 @@ const responseDataSchema = z.object({
   overall_analysis: overallAnalysisSchema,
 });
 
-export default responseDataSchema;
+export type FinancialDetails = z.infer<typeof financialDetailsSchema>;
+export type Ratio = z.infer<typeof ratioSchema>;
+export type FinancialRatios = z.infer<typeof financialRatiosSchema>;
+export type Source = z.infer<typeof sourceSchema>;
+export type RecurringExpense = z.infer<typeof recurringExpenseSchema>;
+export type IncomeSources = z.infer<typeof incomeSourcesSchema>;
+export type ExpensePatterns = z.infer<typeof expensePatternsSchema>;
+export type TransactionVolume = z.infer<typeof transactionVolumeSchema>;
+export type BalanceTrends = z.infer<typeof balanceTrendsSchema>;
+export type IrregularTransactions = z.infer<typeof irregularTransactionsSchema>;
+export type SpendingConsistency = z.infer<typeof spendingConsistencySchema>;
+export type RiskIndicators = z.infer<typeof riskIndicatorsSchema>;
+export type KeyPatterns = z.infer<typeof keyPatternsSchema>;
+export type OverallAnalysis = z.infer<typeof overallAnalysisSchema>;
+export type ClientDetails = z.infer<typeof clientDetailsSchema>;
+export type ResponseData = z.infer<typeof responseDataSchema>;

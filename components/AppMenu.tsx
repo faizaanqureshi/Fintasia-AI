@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { logout } from "./redirect_buttons/actions"
 import { PanelRightClose } from "lucide-react"
+import Image from "next/image"
 
 export default async function AppMenu({ darkLogo = false, user }: { darkLogo: boolean, user: any }) {
     return (
@@ -22,7 +23,7 @@ export default async function AppMenu({ darkLogo = false, user }: { darkLogo: bo
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="avatar">
                         <div className="w-10 rounded-full">
-                            <img src={user.data.user?.user_metadata.avatar_url} />
+                            <img src={user.data.user?.user_metadata.picture} />
                         </div>
                     </div>
                     <ul tabIndex={0} className="dropdown-content menu bg-white rounded-box z-[1] w-52 p-2 font-sans shadow active:bg-gray-200 [&_li>*:not(ul):not(.menu-title):not(details):active]:bg-white">
