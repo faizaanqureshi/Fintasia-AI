@@ -36,9 +36,6 @@ export async function editReportDetails(id, name, phone, email) {
     const supabase = createClient()
 
     const { error } = await (await supabase).from('Reports').update({ client_name: name, phone: phone, email: email }).eq('id', id)
-
-    console.log(error)
-    console.log('LETS SEE')
     
     return error
 }
