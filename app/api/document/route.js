@@ -1,9 +1,12 @@
 import { DocumentProcessorServiceClient } from '@google-cloud/documentai';
 import { NextRequest, NextResponse } from 'next/server';
+import { GoogleAuth } from 'google-auth-library';
 
 export async function POST(req) {
   try {
-    const client = new DocumentProcessorServiceClient();
+    const credentials = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS);
+    const auth = new GoogleAuth({credentials});
+    const client = new DocumentProcessorServiceClient({auth});
     const name = `projects/fintasia-ai/locations/us/processors/d8d5c115b13ec973`;
 
     console.log('init processors');
