@@ -68,7 +68,7 @@ export function NewReport() {
                 Start Your Financial Analysis Here
             </h1>
             <h2 className="text-2xl font-thin font-sans text-black text-center pt-6">
-                Simply upload a bank statement, balance sheet, or any other financial document
+                Upload Bank Statements for Transaction Insights and Credit Ratings
             </h2>
             {!loading ?
                 <div className="w-full max-w-4xl mx-auto min-h-96 bg-transparent rounded-lg">
@@ -77,6 +77,7 @@ export function NewReport() {
                 <div className="flex self-center items-center justify-center flex-col mt-16 gap-10">
                     <h1 className="font-sans font-thin text-xl text-center">{loadingText}</h1>
                     <progress className="progress w-84 self-center"></progress>
+                    <h1 className="font-sans font-thin text-xl text-center">This may take a couple of minutes</h1>
                 </div>
             }
             {files.length && !loading ?
