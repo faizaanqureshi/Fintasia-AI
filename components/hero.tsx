@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { GetStarted } from "./redirect_buttons/Buttons";
 
 export default function Hero() {
