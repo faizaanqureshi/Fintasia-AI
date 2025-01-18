@@ -56,7 +56,7 @@ export default function Patterns({ patterns }: { patterns: KeyPatterns | undefin
                             <h1 className="stat-desc text-center text-slate-400 text-md sm:text-lg">Liabilities</h1>
                             <div className="flex flex-col pt-4 text-center">
                                 <h1 className="stat-desc text-center text-slate-400">Percent of Debit</h1>
-                                <h1 className="stat-value text-sm sm:text-lg">%{patterns?.expense_patterns.categories.liabilities.percent_of_debit}</h1>
+                                <h1 className="stat-value text-sm sm:text-lg">{patterns?.expense_patterns.categories.liabilities.percent_of_debit}%</h1>
                             </div>
                             <div className="flex flex-col pt-2">
                                 <h1 className="stat-desc text-center text-slate-400">Total Debit</h1>
@@ -68,7 +68,7 @@ export default function Patterns({ patterns }: { patterns: KeyPatterns | undefin
                             <h1 className="stat-desc text-center text-slate-400 text-md sm:text-lg">Necessities</h1>
                             <div className="flex flex-col pt-4">
                                 <h1 className="stat-desc text-center text-slate-400">Percent of Debit</h1>
-                                <h1 className="stat-value text-sm sm:text-lg text-center">%{patterns?.expense_patterns.categories.necessities.percent_of_debit}</h1>
+                                <h1 className="stat-value text-sm sm:text-lg text-center">{patterns?.expense_patterns.categories.necessities.percent_of_debit}%</h1>
                             </div>
                             <div className="flex flex-col pt-2">
                                 <h1 className="stat-desc text-center text-slate-400">Total Debit</h1>
@@ -80,7 +80,7 @@ export default function Patterns({ patterns }: { patterns: KeyPatterns | undefin
                             <h1 className="stat-desc text-center text-slate-400 text-md sm:text-lg text-md sm:text-lg">One Time <br />Expenses</h1>
                             <div className="flex flex-col pt-4">
                                 <h1 className="stat-desc text-center text-slate-400">Percent of Debit</h1>
-                                <h1 className="stat-value text-sm sm:text-lg text-center">%{patterns?.expense_patterns.categories.one_time_expenses.percent_of_debit}</h1>
+                                <h1 className="stat-value text-sm sm:text-lg text-center">{patterns?.expense_patterns.categories.one_time_expenses.percent_of_debit}%</h1>
                             </div>
                             <div className="flex flex-col pt-4">
                                 <h1 className="stat-desc text-center text-slate-400">Total Debit</h1>
@@ -92,7 +92,7 @@ export default function Patterns({ patterns }: { patterns: KeyPatterns | undefin
                             <h1 className="stat-desc text-center text-slate-400 text-lg text-md sm:text-lg">Luxuries</h1>
                             <div className="flex flex-col pt-4">
                                 <h1 className="stat-desc text-center text-slate-400">Percent of Debit</h1>
-                                <h1 className="stat-value text-sm sm:text-lg text-center">%{patterns?.expense_patterns.categories.luxuries.percent_of_debit}</h1>
+                                <h1 className="stat-value text-sm sm:text-lg text-center">{patterns?.expense_patterns.categories.luxuries.percent_of_debit}%</h1>
                             </div>
                             <div className="flex flex-col pt-2">
                                 <h1 className="stat-desc text-center text-slate-400">Total Debit</h1>
