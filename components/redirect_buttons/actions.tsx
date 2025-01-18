@@ -9,7 +9,7 @@ export async function googleOAuth() {
     const { data, error } = await (await supabase).auth.signInWithOAuth({
         provider: 'google',
         options: {
-            redirectTo: `http://localhost:3000/auth/callback`,
+            redirectTo: `https://fintasia-ai.vercel.app/auth/callback`,
             queryParams: {
                 access_type: 'offline',
                 prompt: 'select_account',
