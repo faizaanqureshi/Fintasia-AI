@@ -9,6 +9,8 @@ export function NewReport() {
     const [files, setFiles] = useState<File[]>([]);
     const [loadingText, setLoadingText] = useState<string>("First we'll process your document to make it robot readable 🤖")
     const [loading, setLoading] = useState<boolean>(false);
+    const [error, setError] = useState<boolean>(false);
+    const [errorReason, setErrorReason] = useState<string>('');
 
     const handleFileUpload = (files: File[]) => {
         setFiles(files);
@@ -56,9 +58,13 @@ export function NewReport() {
                 uploadDocument(aiResult);
             } catch (error) {
                 console.error('Error in AI request:', error)
+                setError(true)
+                setErrorReason('There was a problem using the AI, try again later')
             }
         } catch (error) {
             console.error('Error converting file:', error);
+            setError(true)
+            setErrorReason('There was a problem parsing your document, upload another document or try again later')
         }
     }
 
@@ -70,7 +76,7 @@ export function NewReport() {
             <h2 className="text-2xl font-thin font-sans text-black text-center pt-6">
                 Upload Bank Statements for Transaction Insights and Credit Ratings
             </h2>
-            {!loading ?
+            {!loading && !error ?
                 <div className="w-full max-w-4xl mx-auto min-h-96 bg-transparent rounded-lg">
                     <FileUpload onChange={handleFileUpload} />
                 </div> :
@@ -80,7 +86,7 @@ export function NewReport() {
                     <h1 className="font-sans font-thin text-xl text-center">This may take a couple of minutes</h1>
                 </div>
             }
-            {files.length && !loading ?
+            {files.length && !loading && !error ?
                 <form onSubmit={handleSubmit} className="flex self-center">
                     <div className="self-center -translate-y-12 md:-translate-y-16">
                         <Button
@@ -90,6 +96,22 @@ export function NewReport() {
                             Generate
                         </Button>
                     </div></form> : null}
+            {error ?
+                <div role="alert" className="alert alert-error">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6 shrink-0 stroke-current"
+                        fill="none"
+                        viewBox="0 0 24 24">
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>{errorReason}</span>
+                </div>
+                : null}
         </div>
     )
 }
