@@ -29,22 +29,22 @@ export default function UserReports({ userReports }: { userReports: any }) {
 
     return (<div>
         {
-            userReports.length > 0 ? userReports.map((report: any) => {
+            userReports.length > 0 ? userReports.map((report: any, index: number) => {
                 return (
-                    <div className="flex flex-row items-center justify-between gap-4 pr-5">
+                    <div className="flex flex-row items-center justify-between gap-4 pr-5 pb-2">
                         <li className="text-sans font-thin text-md truncate max-w-36 w-fit" onClick={() => router.push(`/financial-ai/report?id=${report.id}`)}><a>{report.client_name}</a></li>
                         <div className="join">
-                            <button className="btn join-item btn-sm bg-white hover:bg-neutral-300 border-neutral-200 hover:border-neutral-200" onClick={() => (document.getElementById('edit_modal') as HTMLDialogElement).showModal()}>
+                            <button className="btn join-item btn-sm bg-white hover:bg-neutral-300 border-neutral-200 hover:border-neutral-200" onClick={() => (document.getElementById(`edit_modal_${index}`) as HTMLDialogElement).showModal()}>
                                 <Pencil strokeWidth={1.5} width={20} stroke="black" />
                             </button>
-                            <button className="btn join-item btn-sm bg-white hover:bg-neutral-300 border-neutral-200 hover:border-neutral-200" onClick={() => (document.getElementById('delete_modal') as HTMLDialogElement).showModal()}>
+                            <button className="btn join-item btn-sm bg-white hover:bg-neutral-300 border-neutral-200 hover:border-neutral-200" onClick={() => (document.getElementById(`delete_modal_${index}`) as HTMLDialogElement).showModal()}>
                                 <Trash strokeWidth={1.5} width={20} stroke="black" />
                             </button>
                         </div>
 
-                        <EditModal report={report} />
+                        <EditModal index={index} report={report} />
                         
-                        <dialog id="delete_modal" className="modal">
+                        <dialog id={`delete_modal_${index}`} className="modal">
                             <div className="modal-box bg-white">
                                 <h3 className="font-bold text-lg">Delete Report?</h3>
                                 <p className="pt-4 text-md">This will delete <b>{report.client_name}</b></p>

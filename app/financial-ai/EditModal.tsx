@@ -2,7 +2,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { editReportDetails } from "./new/actions";
 
-export default function EditModal({ report }: { report: any }) {
+export default function EditModal({ report, index }: { report: any, index: number }) {
     const [name, setName] = useState(report.client_name)
     const [email, setEmail] = useState(report.email)
     const [phone, setPhone] = useState(report.phone)
@@ -15,7 +15,7 @@ export default function EditModal({ report }: { report: any }) {
     }
 
     return (
-        <dialog id="edit_modal" className="modal">
+        <dialog id={`edit_modal_${index}`} className="modal">
             <div className="modal-box bg-white">
                 <h3 className="font-bold text-lg">Edit Information</h3>
                 <div className="flex flex-col gap-4 pt-6">
