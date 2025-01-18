@@ -10,7 +10,7 @@ import UserReports from "../UserReports";
 export default async function NewReportPage() {
   const supabase = createClient();
   const user = await (await supabase).auth.getUser()
-  const userReports = (await (await supabase).from('Reports').select('id, client_name').eq('user_id_fk', user.data.user?.id)).data
+  const userReports = (await (await supabase).from('Reports').select('id, client_name, email, phone').eq('user_id_fk', user.data.user?.id)).data
 
   return (
     <div className="min-h-screen overflow-auto relative">

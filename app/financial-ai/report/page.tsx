@@ -20,7 +20,7 @@ export default async function ReportPage({
     }
     const supabase = createClient();
     const user = await (await supabase).auth.getUser()
-    const userReports = (await (await supabase).from('Reports').select('id, client_name').eq('user_id_fk', user.data.user?.id)).data
+    const userReports = (await (await supabase).from('Reports').select('id, client_name, email, phone').eq('user_id_fk', user.data.user?.id)).data
 
     const { data, error } = await (await supabase).from('Reports').select().eq('id', parseInt(id))
 
@@ -45,7 +45,7 @@ export default async function ReportPage({
                         <AuroraBackgroundLight className="absolute inset-0 h-full w-full"><></></AuroraBackgroundLight>
                         <div className="relative z-50 flex h-full flex-col sm:p-4">
                             <AppMenu user={user} darkLogo />
-                            <ExistingReport report={report} date={data[0].created_at} />
+                            <ExistingReport report={report} name={data[0].client_name} phone={data[0].phone} email={data[0].email} date={data[0].created_at} />
                         </div>
                     </div>
                 </div>

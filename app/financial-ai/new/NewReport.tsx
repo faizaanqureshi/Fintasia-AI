@@ -59,11 +59,13 @@ export function NewReport() {
             } catch (error) {
                 console.error('Error in AI request:', error)
                 setError(true)
+                setLoading(false)
                 setErrorReason('There was a problem using the AI, try again later')
             }
         } catch (error) {
             console.error('Error converting file:', error);
             setError(true)
+            setLoading(false)
             setErrorReason('There was a problem parsing your document, upload another document or try again later')
         }
     }
@@ -102,6 +104,7 @@ export function NewReport() {
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6 shrink-0 stroke-current"
                         fill="none"
+                        stroke="white"
                         viewBox="0 0 24 24">
                         <path
                             strokeLinecap="round"
@@ -109,7 +112,7 @@ export function NewReport() {
                             strokeWidth="2"
                             d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <span>{errorReason}</span>
+                    <span className="text-white">{errorReason}</span>
                 </div>
                 : null}
         </div>
