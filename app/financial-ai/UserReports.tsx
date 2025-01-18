@@ -31,8 +31,8 @@ export default function UserReports({ userReports }: { userReports: any }) {
         {
             userReports.length > 0 ? userReports.map((report: any) => {
                 return (
-                    <div className="flex flex-row items-center justify-between pr-5">
-                        <li className="text-sans font-thin text-md truncate max-w-48 w-fit" onClick={() => router.push(`/financial-ai/report?id=${report.id}`)}><a>{report.client_name}</a></li>
+                    <div className="flex flex-row items-center justify-between gap-4 pr-5">
+                        <li className="text-sans font-thin text-md truncate max-w-36 w-fit" onClick={() => router.push(`/financial-ai/report?id=${report.id}`)}><a>{report.client_name}</a></li>
                         <div className="join">
                             <button className="btn join-item btn-sm bg-white hover:bg-neutral-300 border-neutral-200 hover:border-neutral-200" onClick={() => (document.getElementById('edit_modal') as HTMLDialogElement).showModal()}>
                                 <Pencil strokeWidth={1.5} width={20} stroke="black" />
