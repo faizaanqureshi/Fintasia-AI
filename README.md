@@ -38,6 +38,8 @@ Access the hosted website here:
 4. **Manage Data**: Easily upload and manage your financial data to keep
    insights up-to-date.
 
+![Site Preview](https://fintasia-ai.vercel.app/)
+
 ## Feedback
 
 If you have any feedback or suggestions, feel free to reach out or create an
