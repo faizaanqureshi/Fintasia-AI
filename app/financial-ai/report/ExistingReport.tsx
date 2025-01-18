@@ -16,7 +16,7 @@ export default function ExistingReport({ report, date }: { report: ResponseData 
     const analysis = report?.overall_analysis
     const rating = report?.rating
 
-    return <div className="flex flex-col justify-center w-full sm:w-10/12 lg:w-9/12 xl:w-8/12 2xl:w-9/12 p-4 md:p-8 self-center gap-12 bg-white/50 shadow rounded-xl">
+    return <div className="flex flex-col justify-center w-full sm:w-10/12 lg:w-9/12 xl:w-8/12 2xl:w-9/12 p-4 md:p-8 self-center gap-12 mt-8 bg-white/50 shadow rounded-xl">
         <ClientInfo client_details={client_details} phoneNumber={phoneNumber} date={date} />
         <Financials financial_details={financial_details} />
         <Ratios financial_ratios={financial_ratios} />
