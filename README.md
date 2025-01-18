@@ -38,7 +38,7 @@ Access the hosted website here:
 4. **Manage Data**: Easily upload and manage your financial data to keep
    insights up-to-date.
 
-![Site Preview]((./public/site.png))
+![Site Preview](./public/site.png)
 
 ## Feedback
 
