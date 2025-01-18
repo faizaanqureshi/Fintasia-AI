@@ -11,7 +11,7 @@ import UserReports, { PlusButton } from "../UserReports";
 export default async function ReportPage({
     searchParams
 }: {
-    searchParams: { id?: string }
+    searchParams: any
 }) {
     const { id } = searchParams
 
