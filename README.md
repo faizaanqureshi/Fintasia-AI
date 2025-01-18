@@ -25,7 +25,7 @@ smarter financial decisions.
 ## Visit the Application
 
 Access the hosted website here:
-[Financial AI Dashboard](https://your-hosted-url.com)
+[Financial AI Dashboard](https://fintasia-ai.vercel.app/)
 
 ## Usage
 
@@ -44,4 +44,4 @@ Access the hosted website here:
 
 If you have any feedback or suggestions, feel free to reach out or create an
 issue on the
-[GitHub repository](https://github.com/yourusername/financial-ai-dashboard).
+[GitHub repository](https://github.com/faizaanqureshi/Fintasia-AI).
