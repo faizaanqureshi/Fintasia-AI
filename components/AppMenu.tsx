@@ -30,7 +30,7 @@ export default async function AppMenu({ darkLogo = false, user }: { darkLogo: bo
                         <div className="px-4 py-2 font-semibold font-sans text-base">{user.data.user?.user_metadata.name}</div>
                         <div className="sm:hidden">
                             <li><Link href="/">Home</Link></li>
-                            <li><Link href="#about">About</Link></li>
+                            <li><Link href="/about">About</Link></li>
                             <li><Link href="https://github.com/faizaanqureshi/Fintasia-AI" target="_blank">GitHub</Link></li>
                         </div>
                         <li onClick={logout}><a>Logout</a></li>

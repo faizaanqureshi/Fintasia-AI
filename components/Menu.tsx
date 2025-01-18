@@ -11,7 +11,7 @@ export default function Menu({ darkLogo = false }: { darkLogo: boolean }) {
             </div>
             <div className={`gap-2 hidden sm:flex ${darkLogo ? 'text-black border-black' : 'text-white border-white'}`}>
                 <Link href="/" className={`badge ${darkLogo ? 'bg-white text-black' : 'badge-outline'}`}>Home</Link>
-                <Link href="#about" className={`badge ${darkLogo ? 'bg-white text-black' : 'badge-outline'}`}>About</Link>
+                <Link href="/about" className={`badge ${darkLogo ? 'bg-white text-black' : 'badge-outline'}`}>About</Link>
                 <Link href="https://github.com/faizaanqureshi/Fintasia-AI" target="_blank" className={`badge ${darkLogo ? 'bg-white text-black' : 'badge-outline'}`}>GitHub</Link>
             </div>
             <div>
@@ -24,7 +24,7 @@ export default function Menu({ darkLogo = false }: { darkLogo: boolean }) {
                     </svg></div>
                     <ul tabIndex={0} className="dropdown-content menu bg-white rounded-box z-[1] w-52 p-2 shadow">
                         <li><Link href="/">Home</Link></li>
-                        <li><Link href="#about">About</Link></li>
+                        <li><Link href="/about">About</Link></li>
                         <li><Link href="https://github.com/faizaanqureshi/Fintasia-AI" target="_blank">GitHub</Link></li>
                     </ul>
                 </div>
