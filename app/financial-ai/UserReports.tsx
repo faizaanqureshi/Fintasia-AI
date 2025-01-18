@@ -32,7 +32,7 @@ export default function UserReports({ userReports }: { userReports: any }) {
                 return (
                     <div className="flex flex-row items-center justify-between pr-5">
                         <li className="text-sans font-thin text-md" onClick={() => router.push(`/financial-ai/report?id=${report.id}`)}><a>{report.client_name}</a></li>
-                        <button onClick={() => document.getElementById('delete_modal').showModal()}>
+                        <button onClick={() => (document.getElementById('delete_modal') as HTMLDialogElement).showModal()}>
                             <Trash strokeWidth={1.5} width={20} />
                         </button>
                         <dialog id="delete_modal" className="modal">
