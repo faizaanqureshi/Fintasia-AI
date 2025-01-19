@@ -36,7 +36,7 @@ export default async function ReportPage({
     }
 
     return (
-        <div className="min-h-screen overflow-auto relative">
+        <div className="min-h-screen overflow-hidden">
             <div className="drawer w-full">
                 <input id="my-drawer" type="checkbox" className="drawer-toggle" />
 

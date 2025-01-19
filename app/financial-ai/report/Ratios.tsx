@@ -11,17 +11,17 @@ function RatioDisplay({ratio, title}: {ratio: any, title: string}) {
                 </div>
                 <div className="flex flex-row justify-evenly">
                     <div className="flex flex-col">
-                        <h1 className="stat-desc text-center text-slate-400">Low</h1>
+                        <h1 className="stat-desc text-center text-neutral-400">Low</h1>
                         <h1>{ratio.low}</h1>
                     </div>
 
                     <div className="flex flex-col text-center">
-                        <h1 className="stat-desc text-slate-400">Average</h1>
+                        <h1 className="stat-desc text-neutral-400">Average</h1>
                         <h1>{ratio.average}</h1>
                     </div>
 
                     <div className="flex flex-col text-center">
-                        <h1 className="stat-desc text-slate-400">High</h1>
+                        <h1 className="stat-desc text-neutral-400">High</h1>
                         <h1>{ratio.high}</h1>
                     </div>
                 </div>

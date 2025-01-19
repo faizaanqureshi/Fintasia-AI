@@ -8,7 +8,7 @@ export default function Analysis({analysis}: {analysis: OverallAnalysis | undefi
                 {analysis?.summary}
             </div>
 
-            <div className="flex flex-col mt-7 bg-white rounded-xl shadow-xl p-4">
+            <div className="flex flex-col mt-7 bg-white rounded-xl shadow-xl p-4 font-sans">
                 {analysis?.recommendation}
             </div>
         </div>

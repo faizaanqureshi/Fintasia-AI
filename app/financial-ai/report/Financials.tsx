@@ -4,7 +4,7 @@ function NumberData({ heading, number, desc }: { heading: string, number: string
     return (
         <div className="tooltip bg-white text-black rounded-xl shadow-md p-4" data-tip={desc}>
             <div className="flex flex-col justify-between h-full">
-                <h1 className="text-md font-md font-sans leading-5">
+                <h1 className="text-md font-md font-sans leading-5 font-sans">
                     {heading}
                 </h1>
                 <h1 className="stat-value text-lg pt-2">

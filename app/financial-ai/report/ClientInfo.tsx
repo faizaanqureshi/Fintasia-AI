@@ -12,10 +12,10 @@ export default function ClientInfo({ fullName, email, phoneNumber, date }: { ful
                     </h1>
                 </div>
                 <div className="flex flex-col items-center w-fit pt-2">
-                    <h1 className="text-xl font-sans w-fit">
+                    <h1 className="text-md lg:text-xl font-sans w-fit">
                         <a href={`mailto:${email}`} className="text-cyan-600 underline">{email}</a>
                     </h1>
-                    <h1 className="text-xl font-sans text-black w-fit">
+                    <h1 className="text-md lg:text-xl font-sans text-black w-fit">
                         <a href={`tel:${phoneNumber}`} className="text-cyan-600 underline">{phoneNumber}</a>
                     </h1>
                     <h1 className="text-md font-sans text-black w-fit">
