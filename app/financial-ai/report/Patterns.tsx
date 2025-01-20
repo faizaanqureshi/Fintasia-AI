@@ -236,7 +236,7 @@ export default function Patterns({ patterns }: { patterns: KeyPatterns | undefin
                         </div>
 
                         <div className="flex flex-col items-center">
-                            <h1 className="text-center text-neutral-400 text-base pt-8 sm:pt-4 font-sans">Monthly Trends</h1>
+                            <h1 className="text-base text-center text-neutral-400 text-wrap font-sans">Monthly Trends</h1>
                             <div className="flex flex-row justify-between pt-2 gap-4">
                                 <div className="flex items-center flex-col">
                                     <h1 className="stat-desc text-center text-neutral-400 text-center text-wrap">Highest Spending Month</h1>
